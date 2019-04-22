@@ -1,0 +1,2 @@
+# Degree-Req-Pseudo
+This repo provides basic pseudocode for the degree requirement logic behind the Improved "What If?" component of the 2019 ISS Capstone Project. It also includes database or UI issues that have not been resolved yet, such as determining whether or not a Public Policy student has completed their internship requirement. As of April 2019, this repository only contains pseudocode for the prototype departments: Computer Science, Public Policy, Visual Media Studies, and Information Science & Studies.
