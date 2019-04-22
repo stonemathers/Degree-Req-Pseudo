@@ -1,0 +1,67 @@
+Degree: Computational Biology and Bioinformatics
+Type: Minor
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially satisfied, and to ensure that no courses double-count
+
+------------------------------------------
+
+Req name: Introductory Calculus I
+Req type: Pre-requirement
+Req logic: 
+method(classes){
+	return classes.contains(MATH111L || AP Calc AB credit || AP Calc BC credit)
+}
+
+------------------------------------------
+
+Req name: Statistics
+Req type: Pre-requirement
+Req logic: 
+method(classes){
+	return classes.contains(MATH112L || MATH122 || STAT101 or above || BIO204 || BIO215 || BIO304 || BME244 || PHYSICS414 || AP Calc BC credit)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 201
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI201)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 260
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI260)
+}
+
+------------------------------------------
+
+Req name: Intermediate COMPSCI
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI216 || COMPSCI220 || COMPSCI224 || COMPSCI316 || COMPSCI370 || COMPSCI 500-599 || DUS approved 200+ COMPSCI course || Ind. Study in bioninformatics or computational biology)
+}
+
+------------------------------------------
+
+Req name: Intermediate Biology
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(BIO201L)
+}
+
+------------------------------------------
+
+Req name: Advanced Biology
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(BIO215 || BIO218 || BIO220 || BIO251L || BIO311 || BIO325 || BIO414LS || BIO416L || BIO418 || BIO425 || BIO450S || BIO556L || BIO557L || 500+ CBB Ind. Study || BIO course approved by CS DUS and BIO DUS)
+}

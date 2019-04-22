@@ -1,0 +1,82 @@
+Degree: Visual and Media Studies Major
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially satisfied, and to ensure that no courses double-count
+
+------------------------------------------
+
+Req name: VMS 202D
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(VMS202D)
+}
+
+------------------------------------------
+
+Req name: VMS 327S
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(VMS327S)
+}
+
+------------------------------------------
+
+Req name: VMS Capstone
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(VMS499S)
+}
+
+------------------------------------------
+
+Req name: Media History/Art History
+Req type: Requirement
+Req logic: 
+method(classes){
+	//Need to figure out how to determine if VMS classes are in Media History or Art History
+}
+
+------------------------------------------
+
+Req name: Visual & Media Practice, 200+ level
+Req type: Requirement
+Req logic: 
+method(classes){
+	//Need to figure out how to determine if VMS classes are in Visual & Media Practice
+}
+
+------------------------------------------
+
+Req name: Three Faculty-taught VMS Electives
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+
+	//List of AAHVS faculty: aahvs.duke.edu/people/all-faculty
+	for class in classes:
+		if(class.code == VMS && class.professor == AAHVS faculty){
+			validElectives++;
+		}
+
+	return validElectives >= 3
+}
+
+------------------------------------------
+
+Req name: Three Cross-Listed VMS Electives
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+
+	//List of AAHVS faculty: aahvs.duke.edu/people/all-faculty
+	for class in classes:
+		if(class == VMS course || class.cross_listings.contains(VMS code) || other DUS approved course){
+			validElectives++;
+		}
+
+	return validElectives >= 3
+}

@@ -1,0 +1,67 @@
+Degree: Computer Science
+Type: Minor
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially satisfied, and to ensure that no courses double-count
+
+------------------------------------------
+
+Req name: Introductory COMPSCI
+Req type: Pre-requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI101L || COMPSCI102 || COMPSCI116 || AP CS Exam credit)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 201
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI201)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 250
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI250)
+}
+
+------------------------------------------
+
+Req name: Two 200-level or higher COMPSCI electives
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+
+	for class in classes:
+		if(class == 200+ COMPSCI course not counting towards another requirement){
+			validElectives++;
+		}
+
+	return validElectives >= 2
+}
+
+------------------------------------------
+
+Req name: One 100-level or higher COMPSCI elective
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI100+)
+}
+
+
+
+
+
+
+
+
+
+
+

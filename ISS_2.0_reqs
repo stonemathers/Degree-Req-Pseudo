@@ -1,0 +1,49 @@
+Degree: Information Science and Studies - Track 2.0
+Type: Certificate
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially satisfied, and to ensure that no courses double-count
+
+------------------------------------------
+
+Req name: ISS Gateway Experience
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(ISS110 || PUBPOL110 || COMPSCI110 || PHIL110 || approved 100-level ISS course)
+}
+
+------------------------------------------
+
+Req name: Information Theory/Methods
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(ISS240L || VMS288L || AMI325L || COMPSCI101 || COMPSCI101L || STATS 101 || ISS170 || VMS172 || COMPSCI107 || MATH475S || MATH477S || COMPSCI344 || COPMSCI260 || COMPSCI408 || COMPSCI527 || approved QS course with a technology-production element)
+}
+
+------------------------------------------
+
+Req name: One Thematically-Related Elective
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(approved ISS200+ not counting elsewhere || approved ISS Ind. Study)
+}
+
+------------------------------------------
+
+Req name: Two Thematically-Related Experiences
+Req type: Requirement
+Req logic: 
+method(classes){
+	//Figure out how to check student did 1 300 hour experience and 1 150 hour experience
+}
+
+------------------------------------------
+
+Req name: Capstone Experience
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(ISS496)
+}

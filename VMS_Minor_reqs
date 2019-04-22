@@ -1,0 +1,41 @@
+Degree: Visual and Media Studies Minor
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially satisfied, and to ensure that no courses double-count
+
+//Can count up to 2 transfer credits
+
+//No pass/fail credits
+
+------------------------------------------
+
+Req name: Three Faculty-taught VMS Electives
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+
+	//List of AAHVS faculty: aahvs.duke.edu/people/all-faculty
+	for class in classes:
+		if(class.code == VMS && class.professor == AAHVS faculty){
+			validElectives++;
+		}
+
+	return validElectives >= 3
+}
+
+------------------------------------------
+
+Req name: Two Cross-Listed VMS Electives, 200+ Level
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+
+	//List of AAHVS faculty: aahvs.duke.edu/people/all-faculty
+	for class in classes:
+		if(class == 200+ level && (VMS course || class.cross_listings.contains(VMS code))){
+			validElectives++;
+		}
+
+	return validElectives >= 2
+}

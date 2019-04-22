@@ -1,0 +1,116 @@
+Degree: Computer Science BA
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially
+//satisfied, and to ensure that no courses double-count
+
+------------------------------------------
+
+Req name: Introductory COMPSCI
+Req type: Pre-requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI101L || COMPSCI102 || COMPSCI116 || AP CS Exam credit || DUS approval)
+}
+
+------------------------------------------
+
+Req name: Introductory Calculus I
+Req type: Pre-requirement
+Req logic: 
+method(classes){
+	return classes.contains(MATH111L || AP Calc AB credit || AP Calc BC credit)
+}
+
+------------------------------------------
+
+Req name: Introductory Calculus II
+Req type: Pre-requirement
+Req logic: 
+method(classes){
+	return classes.contains(MATH112L || AP Calc BC credit)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 201
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI201)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 230
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI230 || (BME244 && BME271) || (MATH230 && BME271) ||
+		(MATH371 && (MATH230 || MATH305 || MATH 375 || MATH404 || MATH487)) ||
+		(MATH 371 && PHYSICS264) || (STAT210 && STAT360))
+}
+
+------------------------------------------
+
+Req name: COMPSCI 250
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI250)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 330
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI330 || COMPSCI532)
+}
+
+------------------------------------------
+
+Req name: COMPSCI 310
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(COMPSCI310 || COMPSCI510 || COMPSCI316 || COMPSCI516 || COMPSCI350 ||
+		COMPSCI550 || COMPSCI351 || COMPSCI551 || COMPSCI356 || COMPSCI514)
+}
+
+------------------------------------------
+
+Req name: One 200-level or higher COMPSCI elective
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(200+ COMPSCI course not counting towards another requirement)
+}
+
+------------------------------------------
+
+Req name: Two 200-level or higher COMPSCI (independent study possible), MATH, STA, or DUS-approved electives
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+
+	for class in classes:
+		if(class == COMPSCI200+ || MATH200+ || STA200+ || ECON208 || ECON210D || ECON372 || ECON377A || ECON413 || ECON 674 ||
+			ME555 || Independent Study){
+			validElectives++;
+			}
+
+	return validElectives >= 2
+}
+
+
+
+
+
+
+
+
+
+
+

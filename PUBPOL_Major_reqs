@@ -1,0 +1,108 @@
+Degree: Public Policy Studies Major
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially satisfied, and to ensure that no courses double-count
+
+------------------------------------------
+
+Req name: PUBPOL 155D
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(PUBPOL155D)
+}
+
+------------------------------------------
+
+Req name: PUBPOL 301
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(PUBPOL301)
+}
+
+------------------------------------------
+
+Req name: PUBPOL 302
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(PUBPOL302 || PUBPOL330/GLHLTH 210)
+}
+
+------------------------------------------
+
+Req name: PUBPOL 303
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(PUBPOL303 || ECON 201D)
+}
+
+------------------------------------------
+
+Req name: PUBPOL 304
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(PUBPOL304)
+}
+
+------------------------------------------
+
+Req name: Introductory Stats
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(STATS101 || STATS 101-1 || STATS 102 || STATS 104 || STATS 111 || STATS 130)
+}
+
+------------------------------------------
+
+Req name: History Elective
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(Duke class listed here: https://sanford.duke.edu/academics/undergraduate/courses/history-electives)
+}
+------------------------------------------
+
+Req name: Public Policy Internship
+Req type: Requirement
+Req logic: 
+method(classes){
+	//Need to figure out how we are storing whether student has done internship
+}
+
+------------------------------------------
+
+Req name: PUBPOL 120
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(PUBPOL120)
+}
+
+------------------------------------------
+
+Req name: One PUBPOL elective, Level 401-699
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(401-699 PUBPOL course not counting towards another requirement)
+}
+
+------------------------------------------
+
+Req name: Three PUBPOL electives, Level 160-699
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+
+	for class in classes:
+		if(class == 160-699 PUBPOL course not counting towards another requirement || ETHICS271/ECON270/HIST284/POLSCI252 || ETHICS285/ECON285/POLSCI249/ENVIRON276/HIST292 || GLHLTH310S/ETHICS250S || GERMAN282S.01 || HIST328/AAAS213/LATAMER328 || MUSIC390S.01 || THEATRST310S/ECON247S/VMS329S){
+			validElectives++;
+		}
+
+	return validElectives >= 3
+}

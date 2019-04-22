@@ -1,0 +1,55 @@
+Degree: Information Science and Studies - Track 1.0
+Type: Certificate
+
+//Create function to wrap all requirement functions to keep track of which are satisfied, which are partially satisfied, and to ensure that no courses double-count
+
+------------------------------------------
+
+Req name: ISS Gateway Experience
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(ISS100 || ISS101L || ISS110 || CS82)
+}
+
+------------------------------------------
+
+Req name: Information Theory/Methods
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(ISS240 || ISS240L || COMPSCI101 || COMPSCI101L || STATS 101 || ISS170 || VMS172 || COMPSCI107 || MATH475S || MATH477S
+	|| COMPSCI344 || COPMSCI260 || COMPSCI408 || COMPSCI527 || approved QS course with a technology-production element)
+}
+
+------------------------------------------
+
+Req name: Thematically-Related Electives
+Req type: Requirement
+Req logic: 
+method(classes){
+	validElectives = 0
+	indStudiesCounted = 0
+
+	for class in classes:
+		if(class == Ind. Study){
+			if(indStudiesCounted < 1){
+				validElectives++
+				indStudiesCounted++
+			}
+		}
+		else if(class == ISS200+ || (class == 200+ && class.cross_listings.contains(ISS code)) || class == relevant advisor approved 200+ course){
+			validElectives++
+		}
+
+	return validElectives >= 3
+}
+
+------------------------------------------
+
+Req name: Capstone Experience
+Req type: Requirement
+Req logic: 
+method(classes){
+	return classes.contains(ISS495S)
+}
